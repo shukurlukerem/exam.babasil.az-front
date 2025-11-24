@@ -6,11 +6,12 @@ export default function ExamsPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:8003/api/exams/")
+    fetch("http://localhost:8005/api/exams/")
       .then((res) => res.json())
       .then((data) => {
         setExams(data);
         setLoading(false);
+        console.log("data :" , data);
       })
       .catch((err) => {
         console.error("API ERROR:", err);
@@ -18,7 +19,6 @@ export default function ExamsPage() {
       });
   }, []);
 
-  if (loading) return <div className="p-6">Yüklənir...</div>;
 
   return (
     <div className="p-8">
@@ -26,6 +26,7 @@ export default function ExamsPage() {
 
       <div className="space-y-8">
         {exams.map((exam) => (
+            
           <div
             key={exam.id}
             className="bg-white shadow-md rounded-xl p-6 border border-gray-200"
@@ -38,11 +39,12 @@ export default function ExamsPage() {
             </p>
 
             <Link
-              to={`/exams/${exam.id}`}
-              className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold"
+            to={`/exam/${exam.id}`}
+            className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold"
             >
-              İmtahana giriş et
+            İmtahana giriş et
             </Link>
+
           </div>
         ))}
       </div>

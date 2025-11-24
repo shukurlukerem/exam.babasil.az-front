@@ -6,7 +6,7 @@ function ExamsPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("<http:localhost:8003></http:localhost:8003>/api/exams/")
+    fetch("<http:localhost:8005></http:localhost:8005>/api/exams/")
       .then((res) => res.json())
       .then((data) => setExams(data))
       .catch((err) => console.log(err));

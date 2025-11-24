@@ -7,7 +7,7 @@ function ExamDetail() {
   const [timeLeft, setTimeLeft] = useState(2 * 60 * 60); // 2 saat
 
   useEffect(() => {
-    fetch(`http://localhost:8003/api/exams/${id}/questions/`)
+    fetch(`http://localhost:8005/api/exams/${id}/questions/`)
       .then((res) => res.json())
       .then((data) => setQuestions(data))
       .catch((err) => console.log(err));
